@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Secure Message Encoder</title>
+
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="card">
+        <h1>Message Encoder & Decoder</h1>
+
+        <p class="subtitle">Secure your message using Caesar Cipher</p>
+
+        <form method="POST">
+          <label>Enter Message</label>
+
+          <textarea
+            name="message"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+
+          <label>Shift Key</label>
+
+          <input type="number" name="shift" value="3" />
+
+          <div class="button-group">
+            <button
+              type="submit"
+              name="action"
+              value="encode"
+              class="encode-btn"
+            >
+              Encode
+            </button>
+
+            <button
+              type="submit"
+              name="action"
+              value="decode"
+              class="decode-btn"
+            >
+              Decode
+            </button>
+
+            <button type="reset" class="clear-btn">Clear</button>
+          </div>
+        </form>
+
+        <div class="result-box">
+          <h3>Result</h3>
+
+          <p id="result">{{output}}</p>
+
+          <button onclick="copyText()" class="copy-btn">Copy Result</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function copyText() {
+        let text = document.getElementById("result").innerText;
+
+        navigator.clipboard.writeText(text);
+
+        alert("Result copied!");
+      }
+    </script>
+  </body>
+</html>
